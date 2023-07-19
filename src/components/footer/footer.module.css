@@ -10,3 +10,9 @@
   height: 15px;
   position: relative;
 } */
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

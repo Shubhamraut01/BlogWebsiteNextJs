@@ -18,13 +18,12 @@ export default function RootLayout({ children }) {
         <div
           style={{
             display: "flex",
-            marginTop: 300,
-            marginBottom: 300,
+            // marginTop: 300,
+            // marginBottom: 300,
             justifyContent: "center",
           }}
         >
-          {" "}
-          {children}{" "}
+          {children}
         </div>
         <Footer />
       </body>
