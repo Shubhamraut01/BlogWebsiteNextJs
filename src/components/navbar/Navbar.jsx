@@ -1,75 +1,67 @@
 "use client";
+
 import Link from "next/link";
 import React from "react";
-import "./Navbar.css";
+import styles from "./navbar.module.css";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import { signOut, useSession } from "next-auth/react";
 
-export default function Navbar() {
-  const links = [
-    {
-      id: 1,
-      title: "Home",
-      url: "/",
-    },
-    {
-      id: 2,
-      title: "Portfolio",
-      url: "/portfolio",
-    },
-    {
-      id: 3,
-      title: "Blog",
-      url: "/blog",
-    },
-    {
-      id: 4,
-      title: "About",
-      url: "/about",
-    },
-    {
-      id: 5,
-      title: "Contact",
-      url: "/contact",
-    },
-    {
-      id: 6,
-      title: "Dashboard",
-      url: "/dashboard",
-    },
-  ];
+const links = [
+  {
+    id: 1,
+    title: "Home",
+    url: "/",
+  },
+  {
+    id: 2,
+    title: "Portfolio",
+    url: "/portfolio",
+  },
+  {
+    id: 3,
+    title: "Blog",
+    url: "/blog",
+  },
+  {
+    id: 4,
+    title: "About",
+    url: "/about",
+  },
+  {
+    id: 5,
+    title: "Contact",
+    url: "/contact",
+  },
+  {
+    id: 6,
+    title: "Dashboard",
+    url: "/dashboard",
+  },
+];
+
+const Navbar = () => {
+  const session = useSession();
+
   return (
-    <div
-      style={{
-        background: "teal",
-        paddingTop: 20,
-        paddingBottom: 20,
-        paddingLeft: 10,
-        display: "flex",
-        justifyContent: "space-between",
-      }}
-    >
-      <div>
-        <b>ShubhamRaut</b>
-      </div>
-      <div style={{ display: "flex" }}>
-        {links.map((links) => (
-          <Link
-            className="Links"
-            href={links.url}
-            key={links.id}
-            style={{ marginRight: 10, background: "teal" }}
-          >
-            {links.title}
+    <div className={styles.container}>
+      <Link href="/" className={styles.logo}>
+        lamamia
+      </Link>
+      <div className={styles.links}>
+        <DarkModeToggle />
+        {links.map((link) => (
+          <Link key={link.id} href={link.url} className={styles.link}>
+            {link.title}
           </Link>
         ))}
-        <button
-          style={{ marginRight: 10 }}
-          onClick={() => {
-            console.log("logged out");
-          }}
-        >
-          Logout
-        </button>
+        {session.status === "authenticated" && (
+          <button className={styles.logout} onClick={signOut}>
+            Logout
+          </button>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default Navbar;

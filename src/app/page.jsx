@@ -1,32 +1,24 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Hero from "../../public/hero.png";
+import Hero from "public/hero.png";
+import Button from "@/components/Button/Button";
 
 export default function Home() {
   return (
-    <>
-      <div className={styles.container}>
-        <div className={styles.item}>
-          <h1 className={styles.title}>Hii Welcome to my Portfolio Website</h1>
-          <p className={styles.desc}>
-            Hello , I am Shubham Raut, I AM CURRENTLY PURSUING MSC. IN COMPUTER
-            SCIENCE FROM FERGUSSON COLLEGE, PUNE. I HAVE PASSION FOR PIXEL
-            PERFECT, MINIMAL AND EASY TO USE INTERFACES.I HAVE DEEP
-            UNDERSTANDING ABOUT UI/UX & WEB DEVELOPMENT CONCEPTS I HAVE ALSO
-            WORKED WITH DBMS AND CLOUD COMPUTING TECHNOLOGIES.
-          </p>
-          <button className={styles.button}>See Our Work</button>
-        </div>
-        <div className={styles.item}>
-          <Image
-            width={500}
-            height={500}
-            src={Hero}
-            alt="hero"
-            className={styles.img}
-          />
-        </div>
+    <div className={styles.container}>
+      <div className={styles.item}>
+        <h1 className={styles.title}>
+          Better design for your digital products.
+        </h1>
+        <p className={styles.desc}>
+          Turning your Idea into Reality. We bring together the teams from the
+          global tech industry.
+        </p>
+        <Button url="/portfolio" text="See Our Works"/>
       </div>
-    </>
+      <div className={styles.item}>
+        <Image src={Hero} alt="" className={styles.img} />
+      </div>
+    </div>
   );
 }

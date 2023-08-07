@@ -30,7 +30,7 @@ const Contact = () => {
             cols="30"
             rows="10"
           ></textarea>
-          <Button url="#" text="Send" />
+          <Button url="#" text="Send"/>
         </form>
       </div>
     </div>
