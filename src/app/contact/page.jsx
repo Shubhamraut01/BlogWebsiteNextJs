@@ -4,7 +4,7 @@ import Image from "next/image";
 import Button from "@/components/Button/Button";
 
 export const metadata = {
-  title: "Lama Dev Contact Information",
+  title: "ShubhamRaut Contact Information",
   description: "This is Contact Page",
 };
 
@@ -30,7 +30,7 @@ const Contact = () => {
             cols="30"
             rows="10"
           ></textarea>
-          <Button url="#" text="Send"/>
+          <Button url="#" text="Send" />
         </form>
       </div>
     </div>
